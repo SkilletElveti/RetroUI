@@ -13,6 +13,13 @@
 		8859221A2939D436006B9F1A /* RetroUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 8859220C2939D436006B9F1A /* RetroUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		885922242939D44A006B9F1A /* RUTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885922232939D44A006B9F1A /* RUTextField.swift */; };
 		885922262939DC13006B9F1A /* RepTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885922252939DC13006B9F1A /* RepTextField.swift */; };
+		8859222E293A6E7A006B9F1A /* RetroUIExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8859222D293A6E7A006B9F1A /* RetroUIExampleApp.swift */; };
+		88592230293A6E7A006B9F1A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8859222F293A6E7A006B9F1A /* ContentView.swift */; };
+		88592232293A6E7B006B9F1A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88592231293A6E7B006B9F1A /* Assets.xcassets */; };
+		88592235293A6E7B006B9F1A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88592234293A6E7B006B9F1A /* Preview Assets.xcassets */; };
+		8859223F293A6E7B006B9F1A /* RetroUIExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8859223E293A6E7B006B9F1A /* RetroUIExampleTests.swift */; };
+		88592249293A6E7B006B9F1A /* RetroUIExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88592248293A6E7B006B9F1A /* RetroUIExampleUITests.swift */; };
+		8859224B293A6E7B006B9F1A /* RetroUIExampleUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8859224A293A6E7B006B9F1A /* RetroUIExampleUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -22,6 +29,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = 885922082939D436006B9F1A;
 			remoteInfo = RetroUI;
+		};
+		8859223B293A6E7B006B9F1A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 885922002939D436006B9F1A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8859222A293A6E7A006B9F1A;
+			remoteInfo = RetroUIExample;
+		};
+		88592245293A6E7B006B9F1A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 885922002939D436006B9F1A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8859222A293A6E7A006B9F1A;
+			remoteInfo = RetroUIExample;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -33,6 +54,16 @@
 		885922182939D436006B9F1A /* RetroUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetroUITests.swift; sourceTree = "<group>"; };
 		885922232939D44A006B9F1A /* RUTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RUTextField.swift; sourceTree = "<group>"; };
 		885922252939DC13006B9F1A /* RepTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepTextField.swift; sourceTree = "<group>"; };
+		8859222B293A6E7A006B9F1A /* RetroUIExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RetroUIExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8859222D293A6E7A006B9F1A /* RetroUIExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetroUIExampleApp.swift; sourceTree = "<group>"; };
+		8859222F293A6E7A006B9F1A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		88592231293A6E7B006B9F1A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		88592234293A6E7B006B9F1A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8859223A293A6E7B006B9F1A /* RetroUIExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RetroUIExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8859223E293A6E7B006B9F1A /* RetroUIExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetroUIExampleTests.swift; sourceTree = "<group>"; };
+		88592244293A6E7B006B9F1A /* RetroUIExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RetroUIExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		88592248293A6E7B006B9F1A /* RetroUIExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetroUIExampleUITests.swift; sourceTree = "<group>"; };
+		8859224A293A6E7B006B9F1A /* RetroUIExampleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetroUIExampleUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +82,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		88592228293A6E7A006B9F1A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88592237293A6E7B006B9F1A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88592241293A6E7B006B9F1A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -59,6 +111,9 @@
 			children = (
 				8859220B2939D436006B9F1A /* RetroUI */,
 				885922172939D436006B9F1A /* RetroUITests */,
+				8859222C293A6E7A006B9F1A /* RetroUIExample */,
+				8859223D293A6E7B006B9F1A /* RetroUIExampleTests */,
+				88592247293A6E7B006B9F1A /* RetroUIExampleUITests */,
 				8859220A2939D436006B9F1A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -68,6 +123,9 @@
 			children = (
 				885922092939D436006B9F1A /* RetroUI.framework */,
 				885922132939D436006B9F1A /* RetroUITests.xctest */,
+				8859222B293A6E7A006B9F1A /* RetroUIExample.app */,
+				8859223A293A6E7B006B9F1A /* RetroUIExampleTests.xctest */,
+				88592244293A6E7B006B9F1A /* RetroUIExampleUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -89,6 +147,42 @@
 				885922182939D436006B9F1A /* RetroUITests.swift */,
 			);
 			path = RetroUITests;
+			sourceTree = "<group>";
+		};
+		8859222C293A6E7A006B9F1A /* RetroUIExample */ = {
+			isa = PBXGroup;
+			children = (
+				8859222D293A6E7A006B9F1A /* RetroUIExampleApp.swift */,
+				8859222F293A6E7A006B9F1A /* ContentView.swift */,
+				88592231293A6E7B006B9F1A /* Assets.xcassets */,
+				88592233293A6E7B006B9F1A /* Preview Content */,
+			);
+			path = RetroUIExample;
+			sourceTree = "<group>";
+		};
+		88592233293A6E7B006B9F1A /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				88592234293A6E7B006B9F1A /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		8859223D293A6E7B006B9F1A /* RetroUIExampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				8859223E293A6E7B006B9F1A /* RetroUIExampleTests.swift */,
+			);
+			path = RetroUIExampleTests;
+			sourceTree = "<group>";
+		};
+		88592247293A6E7B006B9F1A /* RetroUIExampleUITests */ = {
+			isa = PBXGroup;
+			children = (
+				88592248293A6E7B006B9F1A /* RetroUIExampleUITests.swift */,
+				8859224A293A6E7B006B9F1A /* RetroUIExampleUITestsLaunchTests.swift */,
+			);
+			path = RetroUIExampleUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,6 +235,59 @@
 			productReference = 885922132939D436006B9F1A /* RetroUITests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		8859222A293A6E7A006B9F1A /* RetroUIExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8859224C293A6E7B006B9F1A /* Build configuration list for PBXNativeTarget "RetroUIExample" */;
+			buildPhases = (
+				88592227293A6E7A006B9F1A /* Sources */,
+				88592228293A6E7A006B9F1A /* Frameworks */,
+				88592229293A6E7A006B9F1A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RetroUIExample;
+			productName = RetroUIExample;
+			productReference = 8859222B293A6E7A006B9F1A /* RetroUIExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+		88592239293A6E7B006B9F1A /* RetroUIExampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8859224F293A6E7B006B9F1A /* Build configuration list for PBXNativeTarget "RetroUIExampleTests" */;
+			buildPhases = (
+				88592236293A6E7B006B9F1A /* Sources */,
+				88592237293A6E7B006B9F1A /* Frameworks */,
+				88592238293A6E7B006B9F1A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8859223C293A6E7B006B9F1A /* PBXTargetDependency */,
+			);
+			name = RetroUIExampleTests;
+			productName = RetroUIExampleTests;
+			productReference = 8859223A293A6E7B006B9F1A /* RetroUIExampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		88592243293A6E7B006B9F1A /* RetroUIExampleUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 88592252293A6E7B006B9F1A /* Build configuration list for PBXNativeTarget "RetroUIExampleUITests" */;
+			buildPhases = (
+				88592240293A6E7B006B9F1A /* Sources */,
+				88592241293A6E7B006B9F1A /* Frameworks */,
+				88592242293A6E7B006B9F1A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				88592246293A6E7B006B9F1A /* PBXTargetDependency */,
+			);
+			name = RetroUIExampleUITests;
+			productName = RetroUIExampleUITests;
+			productReference = 88592244293A6E7B006B9F1A /* RetroUIExampleUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -156,6 +303,17 @@
 					};
 					885922122939D436006B9F1A = {
 						CreatedOnToolsVersion = 14.0.1;
+					};
+					8859222A293A6E7A006B9F1A = {
+						CreatedOnToolsVersion = 14.0.1;
+					};
+					88592239293A6E7B006B9F1A = {
+						CreatedOnToolsVersion = 14.0.1;
+						TestTargetID = 8859222A293A6E7A006B9F1A;
+					};
+					88592243293A6E7B006B9F1A = {
+						CreatedOnToolsVersion = 14.0.1;
+						TestTargetID = 8859222A293A6E7A006B9F1A;
 					};
 				};
 			};
@@ -174,6 +332,9 @@
 			targets = (
 				885922082939D436006B9F1A /* RetroUI */,
 				885922122939D436006B9F1A /* RetroUITests */,
+				8859222A293A6E7A006B9F1A /* RetroUIExample */,
+				88592239293A6E7B006B9F1A /* RetroUIExampleTests */,
+				88592243293A6E7B006B9F1A /* RetroUIExampleUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -187,6 +348,29 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		885922112939D436006B9F1A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88592229293A6E7A006B9F1A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88592235293A6E7B006B9F1A /* Preview Assets.xcassets in Resources */,
+				88592232293A6E7B006B9F1A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88592238293A6E7B006B9F1A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88592242293A6E7B006B9F1A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -214,6 +398,32 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		88592227293A6E7A006B9F1A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88592230293A6E7A006B9F1A /* ContentView.swift in Sources */,
+				8859222E293A6E7A006B9F1A /* RetroUIExampleApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88592236293A6E7B006B9F1A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8859223F293A6E7B006B9F1A /* RetroUIExampleTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88592240293A6E7B006B9F1A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8859224B293A6E7B006B9F1A /* RetroUIExampleUITestsLaunchTests.swift in Sources */,
+				88592249293A6E7B006B9F1A /* RetroUIExampleUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -221,6 +431,16 @@
 			isa = PBXTargetDependency;
 			target = 885922082939D436006B9F1A /* RetroUI */;
 			targetProxy = 885922152939D436006B9F1A /* PBXContainerItemProxy */;
+		};
+		8859223C293A6E7B006B9F1A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8859222A293A6E7A006B9F1A /* RetroUIExample */;
+			targetProxy = 8859223B293A6E7B006B9F1A /* PBXContainerItemProxy */;
+		};
+		88592246293A6E7B006B9F1A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8859222A293A6E7A006B9F1A /* RetroUIExample */;
+			targetProxy = 88592245293A6E7B006B9F1A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -435,6 +655,140 @@
 			};
 			name = Release;
 		};
+		8859224D293A6E7B006B9F1A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"RetroUIExample/Preview Content\"";
+				DEVELOPMENT_TEAM = YHL6YP9PRW;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.retro.ui.RetroUIExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8859224E293A6E7B006B9F1A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"RetroUIExample/Preview Content\"";
+				DEVELOPMENT_TEAM = YHL6YP9PRW;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.retro.ui.RetroUIExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		88592250293A6E7B006B9F1A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = YHL6YP9PRW;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.retro.ui.RetroUIExampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RetroUIExample.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/RetroUIExample";
+			};
+			name = Debug;
+		};
+		88592251293A6E7B006B9F1A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = YHL6YP9PRW;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.retro.ui.RetroUIExampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RetroUIExample.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/RetroUIExample";
+			};
+			name = Release;
+		};
+		88592253293A6E7B006B9F1A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = YHL6YP9PRW;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.retro.ui.RetroUIExampleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RetroUIExample;
+			};
+			name = Debug;
+		};
+		88592254293A6E7B006B9F1A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = YHL6YP9PRW;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.retro.ui.RetroUIExampleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RetroUIExample;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -461,6 +815,33 @@
 			buildConfigurations = (
 				885922212939D436006B9F1A /* Debug */,
 				885922222939D436006B9F1A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8859224C293A6E7B006B9F1A /* Build configuration list for PBXNativeTarget "RetroUIExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8859224D293A6E7B006B9F1A /* Debug */,
+				8859224E293A6E7B006B9F1A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8859224F293A6E7B006B9F1A /* Build configuration list for PBXNativeTarget "RetroUIExampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88592250293A6E7B006B9F1A /* Debug */,
+				88592251293A6E7B006B9F1A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		88592252293A6E7B006B9F1A /* Build configuration list for PBXNativeTarget "RetroUIExampleUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88592253293A6E7B006B9F1A /* Debug */,
+				88592254293A6E7B006B9F1A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
