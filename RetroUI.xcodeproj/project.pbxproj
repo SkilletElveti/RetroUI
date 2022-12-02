@@ -11,6 +11,8 @@
 		885922142939D436006B9F1A /* RetroUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 885922092939D436006B9F1A /* RetroUI.framework */; };
 		885922192939D436006B9F1A /* RetroUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885922182939D436006B9F1A /* RetroUITests.swift */; };
 		8859221A2939D436006B9F1A /* RetroUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 8859220C2939D436006B9F1A /* RetroUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		885922242939D44A006B9F1A /* RUTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885922232939D44A006B9F1A /* RUTextField.swift */; };
+		885922262939DC13006B9F1A /* RepTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885922252939DC13006B9F1A /* RepTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +31,8 @@
 		8859220D2939D436006B9F1A /* RetroUI.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = RetroUI.docc; sourceTree = "<group>"; };
 		885922132939D436006B9F1A /* RetroUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RetroUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		885922182939D436006B9F1A /* RetroUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetroUITests.swift; sourceTree = "<group>"; };
+		885922232939D44A006B9F1A /* RUTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RUTextField.swift; sourceTree = "<group>"; };
+		885922252939DC13006B9F1A /* RepTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +77,8 @@
 			children = (
 				8859220C2939D436006B9F1A /* RetroUI.h */,
 				8859220D2939D436006B9F1A /* RetroUI.docc */,
+				885922232939D44A006B9F1A /* RUTextField.swift */,
+				885922252939DC13006B9F1A /* RepTextField.swift */,
 			);
 			path = RetroUI;
 			sourceTree = "<group>";
@@ -194,6 +200,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				885922262939DC13006B9F1A /* RepTextField.swift in Sources */,
+				885922242939D44A006B9F1A /* RUTextField.swift in Sources */,
 				8859220E2939D436006B9F1A /* RetroUI.docc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -396,6 +404,7 @@
 		885922212939D436006B9F1A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = YHL6YP9PRW;
@@ -412,6 +421,7 @@
 		885922222939D436006B9F1A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = YHL6YP9PRW;
