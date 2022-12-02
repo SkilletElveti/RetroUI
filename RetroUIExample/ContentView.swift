@@ -6,7 +6,8 @@
 //
 
 import SwiftUI
-
+import RetroUI
+import Foundation
 struct ContentView: View {
     var body: some View {
         VStack {
@@ -14,6 +15,16 @@ struct ContentView: View {
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
             Text("Hello, world!")
+            RUTextField(
+                textFieldShouldClearHandler:{
+                        return false
+                },
+                textFieldDidEndEditingHandler: {
+                        print("RUTextField Ended Editing")
+                },
+                textFieldDidBeginEditingHandler:{
+                        print("RUTextField Began Editing")
+                })
         }
         .padding()
     }

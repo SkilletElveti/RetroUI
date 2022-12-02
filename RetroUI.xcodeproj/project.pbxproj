@@ -20,6 +20,8 @@
 		8859223F293A6E7B006B9F1A /* RetroUIExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8859223E293A6E7B006B9F1A /* RetroUIExampleTests.swift */; };
 		88592249293A6E7B006B9F1A /* RetroUIExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88592248293A6E7B006B9F1A /* RetroUIExampleUITests.swift */; };
 		8859224B293A6E7B006B9F1A /* RetroUIExampleUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8859224A293A6E7B006B9F1A /* RetroUIExampleUITestsLaunchTests.swift */; };
+		88592256293A6ED0006B9F1A /* RetroUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 885922092939D436006B9F1A /* RetroUI.framework */; };
+		88592257293A6ED0006B9F1A /* RetroUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 885922092939D436006B9F1A /* RetroUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +46,28 @@
 			remoteGlobalIDString = 8859222A293A6E7A006B9F1A;
 			remoteInfo = RetroUIExample;
 		};
+		88592258293A6ED0006B9F1A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 885922002939D436006B9F1A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 885922082939D436006B9F1A;
+			remoteInfo = RetroUI;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8859225A293A6ED0006B9F1A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				88592257293A6ED0006B9F1A /* RetroUI.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		885922092939D436006B9F1A /* RetroUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RetroUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88592256293A6ED0006B9F1A /* RetroUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,6 +139,7 @@
 				8859223D293A6E7B006B9F1A /* RetroUIExampleTests */,
 				88592247293A6E7B006B9F1A /* RetroUIExampleUITests */,
 				8859220A2939D436006B9F1A /* Products */,
+				88592255293A6ED0006B9F1A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -185,6 +210,13 @@
 			path = RetroUIExampleUITests;
 			sourceTree = "<group>";
 		};
+		88592255293A6ED0006B9F1A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -242,10 +274,12 @@
 				88592227293A6E7A006B9F1A /* Sources */,
 				88592228293A6E7A006B9F1A /* Frameworks */,
 				88592229293A6E7A006B9F1A /* Resources */,
+				8859225A293A6ED0006B9F1A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				88592259293A6ED0006B9F1A /* PBXTargetDependency */,
 			);
 			name = RetroUIExample;
 			productName = RetroUIExample;
@@ -441,6 +475,11 @@
 			isa = PBXTargetDependency;
 			target = 8859222A293A6E7A006B9F1A /* RetroUIExample */;
 			targetProxy = 88592245293A6E7B006B9F1A /* PBXContainerItemProxy */;
+		};
+		88592259293A6ED0006B9F1A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 885922082939D436006B9F1A /* RetroUI */;
+			targetProxy = 88592258293A6ED0006B9F1A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

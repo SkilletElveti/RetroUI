@@ -9,22 +9,24 @@ import Foundation
 import SwiftUI
 public struct RUTextField: UIViewRepresentable {
     
-    @Binding public var textFieldShouldClearHandler: () -> (Bool)?
-    @Binding public var textFieldDidEndEditingHandler: () -> ()?
-    @Binding public var textFieldDidBeginEditingHandler: () -> ()?
+   public var textFieldShouldClearHandler: () -> (Bool)?
+   public var textFieldDidEndEditingHandler: () -> ()?
+   public var textFieldDidBeginEditingHandler: () -> ()?
     
-    init(
-        _ textFieldShouldClearHandler: Binding<() -> (Bool)?>,
-        _ textFiledDidEndEditingHandler: Binding<() -> ()?>,
-        _ textFieldDidBeginEditingHandler: Binding<() -> ()?>
+   public init(
+    textFieldShouldClearHandler: @escaping () -> (Bool)?,
+        textFieldDidEndEditingHandler: @escaping () -> ()?,
+        textFieldDidBeginEditingHandler: @escaping () -> ()?
     ) {
-        self._textFieldShouldClearHandler = textFieldShouldClearHandler
-        self._textFieldDidEndEditingHandler = textFiledDidEndEditingHandler
-        self._textFieldDidBeginEditingHandler = textFieldDidBeginEditingHandler
+        self.textFieldShouldClearHandler = textFieldShouldClearHandler
+        self.textFieldDidEndEditingHandler = textFieldDidEndEditingHandler
+        self.textFieldDidBeginEditingHandler = textFieldDidBeginEditingHandler
     }
     
     public func makeUIView(context: Context) -> some UIView {
-        return RepTextField(frame: .zero)
+        let retroTextField = RepTextField(frame: .zero)
+        retroTextField.delegate = context.coordinator
+        return retroTextField
     }
     
     public func makeCoordinator() -> Coordinator {
@@ -60,6 +62,11 @@ extension RUTextField {
         public func textFieldDidBeginEditing(_ textField: UITextField) {
             guard let kTextfield = kTextfield else { return }
             kTextfield.textFieldDidBeginEditingHandler()
+        }
+        
+        public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            textField.resignFirstResponder()
+            return true
         }
     }
     
