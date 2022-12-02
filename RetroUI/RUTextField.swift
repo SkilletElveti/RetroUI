@@ -9,14 +9,14 @@ import Foundation
 import SwiftUI
 public struct RUTextField: UIViewRepresentable {
     
-   public var textFieldShouldClearHandler: () -> (Bool)?
-   public var textFieldDidEndEditingHandler: () -> ()?
-   public var textFieldDidBeginEditingHandler: () -> ()?
+   public var textFieldShouldClearHandler: (() -> (Bool))?
+   public var textFieldDidEndEditingHandler: (() -> ())?
+   public var textFieldDidBeginEditingHandler:(() -> ())?
     
    public init(
-    textFieldShouldClearHandler: @escaping () -> (Bool)?,
-        textFieldDidEndEditingHandler: @escaping () -> ()?,
-        textFieldDidBeginEditingHandler: @escaping () -> ()?
+    textFieldShouldClearHandler: (() -> (Bool))?,
+    textFieldDidEndEditingHandler: (() -> ())?,
+    textFieldDidBeginEditingHandler: (() -> ())?
     ) {
         self.textFieldShouldClearHandler = textFieldShouldClearHandler
         self.textFieldDidEndEditingHandler = textFieldDidEndEditingHandler
@@ -50,18 +50,21 @@ extension RUTextField {
         }
         
         public func textFieldShouldClear(_ textField: UITextField) -> Bool {
-            guard let kTextfield = kTextfield else { return false }
-            return kTextfield.textFieldShouldClearHandler() ?? false
+            guard let kTextfield = kTextfield,
+                  let completionHandler = kTextfield.textFieldShouldClearHandler else { return false }
+            return completionHandler()
         }
         
         public func textFieldDidEndEditing(_ textField: UITextField) {
-            guard let kTextfield = kTextfield else { return }
-            kTextfield.textFieldDidEndEditingHandler()
+            guard let kTextfield = kTextfield,
+                  let textFieldDidEndEditingHandler = kTextfield.textFieldDidEndEditingHandler else { return }
+            textFieldDidEndEditingHandler()
         }
         
         public func textFieldDidBeginEditing(_ textField: UITextField) {
-            guard let kTextfield = kTextfield else { return }
-            kTextfield.textFieldDidBeginEditingHandler()
+            guard let kTextfield = kTextfield,
+                  let textFieldDidBeginEditingHandler = kTextfield.textFieldDidBeginEditingHandler else { return }
+            textFieldDidBeginEditingHandler()
         }
         
         public func textFieldShouldReturn(_ textField: UITextField) -> Bool {

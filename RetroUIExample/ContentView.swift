@@ -21,10 +21,7 @@ struct ContentView: View {
                 },
                 textFieldDidEndEditingHandler: {
                         print("RUTextField Ended Editing")
-                },
-                textFieldDidBeginEditingHandler:{
-                        print("RUTextField Began Editing")
-                })
+                }, textFieldDidBeginEditingHandler: nil)
         }
         .padding()
     }
