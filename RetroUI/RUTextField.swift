@@ -13,25 +13,40 @@ public struct RUTextField: UIViewRepresentable {
     public var textFieldDidEndEditingHandler: (() -> ())?
     public var textFieldShouldReturnHandler: (() -> (Bool))?
     public var textFieldDidBeginEditingHandler:(() -> ())?
-    @Binding var keyboardReturnType: UIReturnKeyType?
+    @Binding public var keyboardReturnType: UIReturnKeyType?
+    @Binding public var borderWidth: CGFloat?
+    @Binding public var borderColor: CGColor?
+    @Binding public var cornerRadius: CGFloat?
+    
     public init(
         textFieldShouldClearHandler: (() -> (Bool))?,
         textFieldDidEndEditingHandler: (() -> ())?,
         textFieldShouldReturnHandler: (() -> (Bool))?,
         textFieldDidBeginEditingHandler: (() -> ())?,
-        keyboardReturnType: Binding<UIReturnKeyType?>
+        keyboardReturnType: Binding<UIReturnKeyType?>?,
+        borderWidth: Binding<CGFloat?>?,
+        borderColor: Binding<CGColor?>?,
+        cornerRadius: Binding<CGFloat?>?
     ) {
         self.textFieldShouldClearHandler = textFieldShouldClearHandler
         self.textFieldDidEndEditingHandler = textFieldDidEndEditingHandler
         self.textFieldDidBeginEditingHandler = textFieldDidBeginEditingHandler
         self.textFieldShouldReturnHandler = textFieldShouldReturnHandler
-        self._keyboardReturnType = keyboardReturnType
+        
+        self._keyboardReturnType = keyboardReturnType ?? Binding.constant(nil)
+        self._borderWidth = borderWidth ?? Binding.constant(nil)
+        self._borderColor = borderColor ?? Binding.constant(nil)
+        self._cornerRadius = cornerRadius ?? Binding.constant(nil)
     }
     
     public func makeUIView(context: Context) -> some UIView {
         let retroTextField = RepTextField(frame: .zero)
         retroTextField.delegate = context.coordinator
         retroTextField.returnKeyType = keyboardReturnType ?? .default
+        retroTextField.layer.borderWidth = borderWidth ?? 0
+        if let borderColor = borderColor { retroTextField.layer.borderColor = borderColor }
+        retroTextField.layer.masksToBounds = true
+        retroTextField.layer.cornerRadius = cornerRadius ?? 0
         return retroTextField
     }
     

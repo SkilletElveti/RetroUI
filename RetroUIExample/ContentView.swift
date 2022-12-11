@@ -10,11 +10,14 @@ import RetroUI
 import Foundation
 struct ContentView: View {
     @State var keyboardType: UIReturnKeyType? = .default
+    @State var borderWidth: CGFloat? = 0.7
+    @State var borderColor: CGColor? = UIColor.red.cgColor
+    @State var cornerRadius: CGFloat? = 15
     var body: some View {
         VStack {
             RUTextField(
                 textFieldShouldClearHandler:{
-                        return false
+                    return true
                 },
                 textFieldDidEndEditingHandler: {
                     print("RUTextField Ended Editing")
@@ -22,7 +25,14 @@ struct ContentView: View {
                     return false
                 }, textFieldDidBeginEditingHandler: {
                     print("RUTextField Editing Began")
-                }, keyboardReturnType: $keyboardType)
+                }, keyboardReturnType: nil,
+                borderWidth: $borderWidth,
+                borderColor: $borderColor,
+                cornerRadius: $cornerRadius
+            )
+            .frame(maxWidth: .infinity)
+            .frame(height: 45)
+            .padding([.horizontal],20)
         }
         .padding()
     }
