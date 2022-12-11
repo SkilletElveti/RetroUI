@@ -9,23 +9,29 @@ import Foundation
 import SwiftUI
 public struct RUTextField: UIViewRepresentable {
     
-   public var textFieldShouldClearHandler: (() -> (Bool))?
-   public var textFieldDidEndEditingHandler: (() -> ())?
-   public var textFieldDidBeginEditingHandler:(() -> ())?
-    
-   public init(
-    textFieldShouldClearHandler: (() -> (Bool))?,
-    textFieldDidEndEditingHandler: (() -> ())?,
-    textFieldDidBeginEditingHandler: (() -> ())?
+    public var textFieldShouldClearHandler: (() -> (Bool))?
+    public var textFieldDidEndEditingHandler: (() -> ())?
+    public var textFieldShouldReturnHandler: (() -> (Bool))?
+    public var textFieldDidBeginEditingHandler:(() -> ())?
+    @Binding var keyboardReturnType: UIReturnKeyType?
+    public init(
+        textFieldShouldClearHandler: (() -> (Bool))?,
+        textFieldDidEndEditingHandler: (() -> ())?,
+        textFieldShouldReturnHandler: (() -> (Bool))?,
+        textFieldDidBeginEditingHandler: (() -> ())?,
+        keyboardReturnType: Binding<UIReturnKeyType?>
     ) {
         self.textFieldShouldClearHandler = textFieldShouldClearHandler
         self.textFieldDidEndEditingHandler = textFieldDidEndEditingHandler
         self.textFieldDidBeginEditingHandler = textFieldDidBeginEditingHandler
+        self.textFieldShouldReturnHandler = textFieldShouldReturnHandler
+        self._keyboardReturnType = keyboardReturnType
     }
     
     public func makeUIView(context: Context) -> some UIView {
         let retroTextField = RepTextField(frame: .zero)
         retroTextField.delegate = context.coordinator
+        retroTextField.returnKeyType = keyboardReturnType ?? .default
         return retroTextField
     }
     
@@ -49,6 +55,7 @@ extension RUTextField {
             self.kTextfield = kTextfield
         }
         
+        
         public func textFieldShouldClear(_ textField: UITextField) -> Bool {
             guard let kTextfield = kTextfield,
                   let completionHandler = kTextfield.textFieldShouldClearHandler else { return false }
@@ -68,8 +75,10 @@ extension RUTextField {
         }
         
         public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-            textField.resignFirstResponder()
-            return true
+            guard let kTextField = kTextfield,
+                  let textFieldShouldReturnHandler = kTextField.textFieldShouldReturnHandler else { return false }
+            if textFieldShouldReturnHandler() { textField.resignFirstResponder() ; return true }
+            return false
         }
     }
     

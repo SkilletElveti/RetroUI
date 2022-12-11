@@ -9,19 +9,20 @@ import SwiftUI
 import RetroUI
 import Foundation
 struct ContentView: View {
+    @State var keyboardType: UIReturnKeyType? = .default
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
             RUTextField(
                 textFieldShouldClearHandler:{
                         return false
                 },
                 textFieldDidEndEditingHandler: {
-                        print("RUTextField Ended Editing")
-                }, textFieldDidBeginEditingHandler: nil)
+                    print("RUTextField Ended Editing")
+                }, textFieldShouldReturnHandler: {
+                    return false
+                }, textFieldDidBeginEditingHandler: {
+                    print("RUTextField Editing Began")
+                }, keyboardReturnType: $keyboardType)
         }
         .padding()
     }
