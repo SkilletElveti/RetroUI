@@ -10,9 +10,11 @@ import RetroUI
 import Foundation
 struct ContentView: View {
     @State var keyboardType: UIReturnKeyType? = .default
-    @State var borderWidth: CGFloat? = 0.7
-    @State var borderColor: CGColor? = UIColor.red.cgColor
-    @State var cornerRadius: CGFloat? = 15
+    @State var borderWidth: CGFloat? = 1.7
+    @State var borderColor: CGColor? = UIColor.systemPink.cgColor
+    @State var cornerRadius: CGFloat? = 25
+    @State var paddingLeft: CGFloat? = 20
+    @State var paddingRight: CGFloat? = 20
     var body: some View {
         VStack {
             RUTextField(
@@ -28,7 +30,9 @@ struct ContentView: View {
                 }, keyboardReturnType: nil,
                 borderWidth: $borderWidth,
                 borderColor: $borderColor,
-                cornerRadius: $cornerRadius
+                cornerRadius: $cornerRadius,
+                paddingLeft: $paddingLeft,
+                paddingRight: $paddingRight
             )
             .frame(maxWidth: .infinity)
             .frame(height: 45)

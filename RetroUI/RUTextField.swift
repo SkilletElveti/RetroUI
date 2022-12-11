@@ -13,11 +13,13 @@ public struct RUTextField: UIViewRepresentable {
     public var textFieldDidEndEditingHandler: (() -> ())?
     public var textFieldShouldReturnHandler: (() -> (Bool))?
     public var textFieldDidBeginEditingHandler:(() -> ())?
+    
     @Binding public var keyboardReturnType: UIReturnKeyType?
     @Binding public var borderWidth: CGFloat?
     @Binding public var borderColor: CGColor?
     @Binding public var cornerRadius: CGFloat?
-    
+    @Binding public var paddingLeft: CGFloat?
+    @Binding public var paddingRight: CGFloat?
     public init(
         textFieldShouldClearHandler: (() -> (Bool))?,
         textFieldDidEndEditingHandler: (() -> ())?,
@@ -26,7 +28,9 @@ public struct RUTextField: UIViewRepresentable {
         keyboardReturnType: Binding<UIReturnKeyType?>?,
         borderWidth: Binding<CGFloat?>?,
         borderColor: Binding<CGColor?>?,
-        cornerRadius: Binding<CGFloat?>?
+        cornerRadius: Binding<CGFloat?>?,
+        paddingLeft: Binding<CGFloat?>?,
+        paddingRight: Binding<CGFloat?>?
     ) {
         self.textFieldShouldClearHandler = textFieldShouldClearHandler
         self.textFieldDidEndEditingHandler = textFieldDidEndEditingHandler
@@ -37,6 +41,8 @@ public struct RUTextField: UIViewRepresentable {
         self._borderWidth = borderWidth ?? Binding.constant(nil)
         self._borderColor = borderColor ?? Binding.constant(nil)
         self._cornerRadius = cornerRadius ?? Binding.constant(nil)
+        self._paddingLeft = paddingLeft ?? Binding.constant(nil)
+        self._paddingRight = paddingRight ?? Binding.constant(nil)
     }
     
     public func makeUIView(context: Context) -> some UIView {
@@ -47,6 +53,8 @@ public struct RUTextField: UIViewRepresentable {
         if let borderColor = borderColor { retroTextField.layer.borderColor = borderColor }
         retroTextField.layer.masksToBounds = true
         retroTextField.layer.cornerRadius = cornerRadius ?? 0
+        retroTextField.paddingLeft = paddingLeft ?? 0
+        retroTextField.paddingRight = paddingRight ?? 0
         return retroTextField
     }
     
