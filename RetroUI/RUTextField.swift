@@ -13,6 +13,7 @@ public struct RUTextField: UIViewRepresentable {
     public var textFieldDidEndEditingHandler: (() -> ())?
     public var textFieldShouldReturnHandler: (() -> (Bool))?
     public var textFieldDidBeginEditingHandler:(() -> ())?
+    public var textFieldShouldEndEditingHandler: (() -> (Bool))?
     
     @Binding public var keyboardReturnType: UIReturnKeyType?
     @Binding public var borderWidth: CGFloat?
@@ -20,11 +21,13 @@ public struct RUTextField: UIViewRepresentable {
     @Binding public var cornerRadius: CGFloat?
     @Binding public var paddingLeft: CGFloat?
     @Binding public var paddingRight: CGFloat?
+    
     public init(
         textFieldShouldClearHandler: (() -> (Bool))?,
         textFieldDidEndEditingHandler: (() -> ())?,
         textFieldShouldReturnHandler: (() -> (Bool))?,
         textFieldDidBeginEditingHandler: (() -> ())?,
+        textFieldShouldEndEditingHandler: (() -> (Bool))?,
         keyboardReturnType: Binding<UIReturnKeyType?>?,
         borderWidth: Binding<CGFloat?>?,
         borderColor: Binding<CGColor?>?,
@@ -36,6 +39,7 @@ public struct RUTextField: UIViewRepresentable {
         self.textFieldDidEndEditingHandler = textFieldDidEndEditingHandler
         self.textFieldDidBeginEditingHandler = textFieldDidBeginEditingHandler
         self.textFieldShouldReturnHandler = textFieldShouldReturnHandler
+        self.textFieldShouldEndEditingHandler = textFieldShouldEndEditingHandler
         
         self._keyboardReturnType = keyboardReturnType ?? Binding.constant(nil)
         self._borderWidth = borderWidth ?? Binding.constant(nil)
@@ -102,6 +106,12 @@ extension RUTextField {
                   let textFieldShouldReturnHandler = kTextField.textFieldShouldReturnHandler else { return false }
             if textFieldShouldReturnHandler() { textField.resignFirstResponder() ; return true }
             return false
+        }
+        
+        public func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+            guard let kTextField = kTextfield,
+                  let textFieldShouldEndEditingHandler = kTextField.textFieldShouldEndEditingHandler else { return true }
+            return textFieldShouldEndEditingHandler()
         }
     }
     

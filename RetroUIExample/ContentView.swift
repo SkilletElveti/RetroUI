@@ -24,10 +24,13 @@ struct ContentView: View {
                 textFieldDidEndEditingHandler: {
                     print("RUTextField Ended Editing")
                 }, textFieldShouldReturnHandler: {
-                    return false
+                    return true
                 }, textFieldDidBeginEditingHandler: {
                     print("RUTextField Editing Began")
-                }, keyboardReturnType: nil,
+                }, textFieldShouldEndEditingHandler: {
+                    return true
+                },
+                keyboardReturnType: nil,
                 borderWidth: $borderWidth,
                 borderColor: $borderColor,
                 cornerRadius: $cornerRadius,
