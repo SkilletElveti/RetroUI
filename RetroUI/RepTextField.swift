@@ -32,6 +32,7 @@ class RepTextField: UITextField {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        self.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
     }
     
     func end() {

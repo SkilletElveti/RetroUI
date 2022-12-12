@@ -14,6 +14,7 @@ public struct RUTextField: UIViewRepresentable {
     public var textFieldShouldReturnHandler: (() -> (Bool))?
     public var textFieldDidBeginEditingHandler:(() -> ())?
     public var textFieldShouldEndEditingHandler: (() -> (Bool))?
+    public var textfieldEditingChangedHandler: ((String) -> ())?
     
     @Binding public var keyboardReturnType: UIReturnKeyType?
     @Binding public var borderWidth: CGFloat?
@@ -23,23 +24,29 @@ public struct RUTextField: UIViewRepresentable {
     @Binding public var paddingRight: CGFloat?
     
     public init(
+        
         textFieldShouldClearHandler: (() -> (Bool))?,
         textFieldDidEndEditingHandler: (() -> ())?,
         textFieldShouldReturnHandler: (() -> (Bool))?,
         textFieldDidBeginEditingHandler: (() -> ())?,
         textFieldShouldEndEditingHandler: (() -> (Bool))?,
+        textfieldEditingChangedHandler: ((String?) -> ())?,
+        
         keyboardReturnType: Binding<UIReturnKeyType?>?,
         borderWidth: Binding<CGFloat?>?,
         borderColor: Binding<CGColor?>?,
         cornerRadius: Binding<CGFloat?>?,
         paddingLeft: Binding<CGFloat?>?,
         paddingRight: Binding<CGFloat?>?
+        
     ) {
+        
         self.textFieldShouldClearHandler = textFieldShouldClearHandler
         self.textFieldDidEndEditingHandler = textFieldDidEndEditingHandler
         self.textFieldDidBeginEditingHandler = textFieldDidBeginEditingHandler
         self.textFieldShouldReturnHandler = textFieldShouldReturnHandler
         self.textFieldShouldEndEditingHandler = textFieldShouldEndEditingHandler
+        self.textfieldEditingChangedHandler = textfieldEditingChangedHandler
         
         self._keyboardReturnType = keyboardReturnType ?? Binding.constant(nil)
         self._borderWidth = borderWidth ?? Binding.constant(nil)
@@ -47,6 +54,7 @@ public struct RUTextField: UIViewRepresentable {
         self._cornerRadius = cornerRadius ?? Binding.constant(nil)
         self._paddingLeft = paddingLeft ?? Binding.constant(nil)
         self._paddingRight = paddingRight ?? Binding.constant(nil)
+        
     }
     
     public func makeUIView(context: Context) -> some UIView {
@@ -59,6 +67,8 @@ public struct RUTextField: UIViewRepresentable {
         retroTextField.layer.cornerRadius = cornerRadius ?? 0
         retroTextField.paddingLeft = paddingLeft ?? 0
         retroTextField.paddingRight = paddingRight ?? 0
+        retroTextField.addTarget(context.coordinator, action: #selector(context.coordinator.textChanged), for: .editingChanged)
+
         return retroTextField
     }
     
@@ -82,11 +92,17 @@ extension RUTextField {
             self.kTextfield = kTextfield
         }
         
-        
         public func textFieldShouldClear(_ textField: UITextField) -> Bool {
             guard let kTextfield = kTextfield,
                   let completionHandler = kTextfield.textFieldShouldClearHandler else { return false }
             return completionHandler()
+        }
+        
+        @objc func textChanged(_ sender: UITextField) {
+            guard let text = sender.text,
+                  let kTextfield = kTextfield,
+                  let textfieldEditingChangedHandler = kTextfield.textfieldEditingChangedHandler else { return }
+            textfieldEditingChangedHandler(text)
         }
         
         public func textFieldDidEndEditing(_ textField: UITextField) {

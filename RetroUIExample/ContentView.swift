@@ -15,33 +15,45 @@ struct ContentView: View {
     @State var cornerRadius: CGFloat? = 25
     @State var paddingLeft: CGFloat? = 20
     @State var paddingRight: CGFloat? = 20
+    @State var someText: String = ""
     var body: some View {
         VStack {
-            RUTextField(
-                textFieldShouldClearHandler:{
-                    return true
-                },
-                textFieldDidEndEditingHandler: {
-                    print("RUTextField Ended Editing")
-                }, textFieldShouldReturnHandler: {
-                    return true
-                }, textFieldDidBeginEditingHandler: {
-                    print("RUTextField Editing Began")
-                }, textFieldShouldEndEditingHandler: {
-                    return true
-                },
-                keyboardReturnType: nil,
-                borderWidth: $borderWidth,
-                borderColor: $borderColor,
-                cornerRadius: $cornerRadius,
-                paddingLeft: $paddingLeft,
-                paddingRight: $paddingRight
-            )
-            .frame(maxWidth: .infinity)
-            .frame(height: 45)
-            .padding([.horizontal],20)
+            Text(someText)
+            ruTextFieldView()
         }
-        .padding()
+    }
+    
+    func ruTextFieldView() -> some View {
+        RUTextField (
+            textFieldShouldClearHandler:{
+                return true
+            },
+            textFieldDidEndEditingHandler: {
+                print("RUTextField Ended Editing")
+            },
+            textFieldShouldReturnHandler: {
+                return true
+            },
+            textFieldDidBeginEditingHandler: {
+                print("RUTextField Editing Began")
+            },
+            textFieldShouldEndEditingHandler: {
+                return true
+            },
+            textfieldEditingChangedHandler: {
+                text in
+                someText = text ?? ""
+            },
+            keyboardReturnType: nil,
+            borderWidth: $borderWidth,
+            borderColor: $borderColor,
+            cornerRadius: $cornerRadius,
+            paddingLeft: $paddingLeft,
+            paddingRight: $paddingRight
+        )
+        .frame(height: 45)
+        .frame(maxWidth: .infinity)
+        .padding(.horizontal,20)
     }
 }
 
