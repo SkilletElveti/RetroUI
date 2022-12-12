@@ -18,6 +18,7 @@ struct ContentView: View {
     @State var someText: String = ""
     @State var placeholder: String? = "RUTextField Example"
     @State var corenerCurve: CALayerCornerCurve? = .continuous
+    @State var borderStyle: UITextField.BorderStyle? = .roundedRect
     var body: some View {
         VStack {
             Text(someText)
@@ -54,7 +55,8 @@ struct ContentView: View {
             cornerCurve: $corenerCurve,
             paddingLeft: $paddingLeft,
             paddingRight: $paddingRight,
-            placeholder: $placeholder
+            placeholder: $placeholder,
+            borderStyle: $borderStyle
         )
         .frame(height: 45)
         .frame(maxWidth: .infinity)

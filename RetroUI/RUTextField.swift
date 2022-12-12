@@ -24,8 +24,8 @@ public struct RUTextField: UIViewRepresentable {
     @Binding public var paddingLeft: CGFloat?
     @Binding public var paddingRight: CGFloat?
     @Binding public var placeholder: String?
-    
-    public init(
+    @Binding public var borderStyle: UITextField.BorderStyle?
+    public init (
         
         textFieldShouldClearHandler: (() -> (Bool))?,
         textFieldDidEndEditingHandler: (() -> ())?,
@@ -41,8 +41,8 @@ public struct RUTextField: UIViewRepresentable {
         cornerCurve: Binding<CALayerCornerCurve?>?,
         paddingLeft: Binding<CGFloat?>?,
         paddingRight: Binding<CGFloat?>?,
-        placeholder: Binding<String?>?
-        
+        placeholder: Binding<String?>?,
+        borderStyle: Binding<UITextField.BorderStyle?>?
     ) {
         
         self.textFieldShouldClearHandler = textFieldShouldClearHandler
@@ -60,7 +60,7 @@ public struct RUTextField: UIViewRepresentable {
         self._paddingRight = paddingRight ?? Binding.constant(nil)
         self._placeholder = placeholder ?? Binding.constant(nil)
         self._cornerCurve = cornerCurve ?? Binding.constant(.continuous)
-        
+        self._borderStyle = borderStyle ?? Binding.constant(nil)
     }
     
     public func makeUIView(context: Context) -> some UIView {
@@ -75,6 +75,7 @@ public struct RUTextField: UIViewRepresentable {
         retroTextField.paddingRight = paddingRight ?? 0
         retroTextField.addTarget(context.coordinator, action: #selector(context.coordinator.textChanged), for: .editingChanged)
         retroTextField.layer.cornerCurve = cornerCurve ?? .continuous
+        if let borderStyle = borderStyle { retroTextField.borderStyle = borderStyle }
         if let placeholder = placeholder { retroTextField.placeholder =  placeholder }
         return retroTextField
     }
@@ -84,7 +85,16 @@ public struct RUTextField: UIViewRepresentable {
     }
     
     public func updateUIView(_ uiView: UIViewType, context: Context) {
-        
+        guard let kTextfield = (uiView as? RepTextField) else { return }
+        if let paddingLeft = paddingLeft { kTextfield.paddingLeft = paddingLeft }
+        if let paddingRight = paddingRight { kTextfield.paddingRight = paddingRight }
+        if let placeholder = placeholder { kTextfield.placeholder = placeholder }
+        if let keyboardReturnType = keyboardReturnType { kTextfield.returnKeyType = keyboardReturnType }
+        if let cornerCurve = cornerCurve { kTextfield.layer.cornerCurve =  cornerCurve }
+        if let borderWidth = borderWidth { kTextfield.layer.borderWidth =  borderWidth }
+        if let borderColor = borderColor { kTextfield.layer.borderColor = borderColor }
+        if let cornerRadius = cornerRadius { kTextfield.layer.cornerRadius = cornerRadius }
+        if let borderStyle = borderStyle { kTextfield.borderStyle = borderStyle }
     }
     
 }
