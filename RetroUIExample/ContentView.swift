@@ -16,9 +16,11 @@ struct ContentView: View {
     @State var paddingLeft: CGFloat? = 20
     @State var paddingRight: CGFloat? = 20
     @State var someText: String = ""
+    @State var placeholder: String? = "RUTextField Example"
     var body: some View {
         VStack {
             Text(someText)
+                .padding(.horizontal,20)
             ruTextFieldView()
         }
     }
@@ -49,7 +51,8 @@ struct ContentView: View {
             borderColor: $borderColor,
             cornerRadius: $cornerRadius,
             paddingLeft: $paddingLeft,
-            paddingRight: $paddingRight
+            paddingRight: $paddingRight,
+            placeholder: $placeholder
         )
         .frame(height: 45)
         .frame(maxWidth: .infinity)

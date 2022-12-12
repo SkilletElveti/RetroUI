@@ -22,7 +22,7 @@ public struct RUTextField: UIViewRepresentable {
     @Binding public var cornerRadius: CGFloat?
     @Binding public var paddingLeft: CGFloat?
     @Binding public var paddingRight: CGFloat?
-    
+    @Binding public var placeholder: String?
     public init(
         
         textFieldShouldClearHandler: (() -> (Bool))?,
@@ -37,10 +37,9 @@ public struct RUTextField: UIViewRepresentable {
         borderColor: Binding<CGColor?>?,
         cornerRadius: Binding<CGFloat?>?,
         paddingLeft: Binding<CGFloat?>?,
-        paddingRight: Binding<CGFloat?>?
-        
+        paddingRight: Binding<CGFloat?>?,
+        placeholder: Binding<String?>?
     ) {
-        
         self.textFieldShouldClearHandler = textFieldShouldClearHandler
         self.textFieldDidEndEditingHandler = textFieldDidEndEditingHandler
         self.textFieldDidBeginEditingHandler = textFieldDidBeginEditingHandler
@@ -54,7 +53,7 @@ public struct RUTextField: UIViewRepresentable {
         self._cornerRadius = cornerRadius ?? Binding.constant(nil)
         self._paddingLeft = paddingLeft ?? Binding.constant(nil)
         self._paddingRight = paddingRight ?? Binding.constant(nil)
-        
+        self._placeholder = placeholder ?? Binding.constant(nil)
     }
     
     public func makeUIView(context: Context) -> some UIView {
@@ -68,7 +67,7 @@ public struct RUTextField: UIViewRepresentable {
         retroTextField.paddingLeft = paddingLeft ?? 0
         retroTextField.paddingRight = paddingRight ?? 0
         retroTextField.addTarget(context.coordinator, action: #selector(context.coordinator.textChanged), for: .editingChanged)
-
+        if let placeholder = placeholder { retroTextField.placeholder =  placeholder }
         return retroTextField
     }
     
