@@ -12,11 +12,12 @@ struct ContentView: View {
     @State var keyboardType: UIReturnKeyType? = .default
     @State var borderWidth: CGFloat? = 1.7
     @State var borderColor: CGColor? = UIColor.systemPink.cgColor
-    @State var cornerRadius: CGFloat? = 25
+    @State var cornerRadius: CGFloat? = 20
     @State var paddingLeft: CGFloat? = 20
     @State var paddingRight: CGFloat? = 20
     @State var someText: String = ""
     @State var placeholder: String? = "RUTextField Example"
+    @State var corenerCurve: CALayerCornerCurve? = .continuous
     var body: some View {
         VStack {
             Text(someText)
@@ -50,6 +51,7 @@ struct ContentView: View {
             borderWidth: $borderWidth,
             borderColor: $borderColor,
             cornerRadius: $cornerRadius,
+            cornerCurve: $corenerCurve,
             paddingLeft: $paddingLeft,
             paddingRight: $paddingRight,
             placeholder: $placeholder
