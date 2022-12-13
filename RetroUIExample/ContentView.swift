@@ -19,6 +19,9 @@ struct ContentView: View {
     @State var placeholder: String? = "RUTextField Example"
     @State var corenerCurve: CALayerCornerCurve? = .continuous
     @State var borderStyle: UITextField.BorderStyle? = .roundedRect
+    let font: UIFont? = UIFont.systemFont(ofSize: 72)
+    @State var clearButtonMode: UITextField.ViewMode? = .unlessEditing
+    @State var clearButtonFlag: Bool? = true
     var body: some View {
         VStack {
             Text(someText)
@@ -56,7 +59,7 @@ struct ContentView: View {
             paddingLeft: $paddingLeft,
             paddingRight: $paddingRight,
             placeholder: $placeholder,
-            borderStyle: $borderStyle
+            borderStyle: $borderStyle, clearButtonFlag: $clearButtonFlag
         )
         .frame(height: 45)
         .frame(maxWidth: .infinity)

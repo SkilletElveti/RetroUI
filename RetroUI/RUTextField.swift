@@ -25,6 +25,8 @@ public struct RUTextField: UIViewRepresentable {
     @Binding public var paddingRight: CGFloat?
     @Binding public var placeholder: String?
     @Binding public var borderStyle: UITextField.BorderStyle?
+    @Binding public var clearButtonFlag: Bool?
+    
     public init (
         
         textFieldShouldClearHandler: (() -> (Bool))?,
@@ -42,7 +44,9 @@ public struct RUTextField: UIViewRepresentable {
         paddingLeft: Binding<CGFloat?>?,
         paddingRight: Binding<CGFloat?>?,
         placeholder: Binding<String?>?,
-        borderStyle: Binding<UITextField.BorderStyle?>?
+        borderStyle: Binding<UITextField.BorderStyle?>?,
+        clearButtonFlag: Binding<Bool?>?
+        
     ) {
         
         self.textFieldShouldClearHandler = textFieldShouldClearHandler
@@ -61,6 +65,8 @@ public struct RUTextField: UIViewRepresentable {
         self._placeholder = placeholder ?? Binding.constant(nil)
         self._cornerCurve = cornerCurve ?? Binding.constant(.continuous)
         self._borderStyle = borderStyle ?? Binding.constant(nil)
+        self._clearButtonFlag = clearButtonFlag ?? Binding.constant(nil)
+        
     }
     
     public func makeUIView(context: Context) -> some UIView {
@@ -68,15 +74,32 @@ public struct RUTextField: UIViewRepresentable {
         retroTextField.delegate = context.coordinator
         retroTextField.returnKeyType = keyboardReturnType ?? .default
         retroTextField.layer.borderWidth = borderWidth ?? 0
-        if let borderColor = borderColor { retroTextField.layer.borderColor = borderColor }
+        if let borderColor = borderColor {
+            retroTextField.layer.borderColor = borderColor
+        }
+        retroTextField.tintColor = .black
         retroTextField.layer.masksToBounds = true
         retroTextField.layer.cornerRadius = cornerRadius ?? 0
         retroTextField.paddingLeft = paddingLeft ?? 0
         retroTextField.paddingRight = paddingRight ?? 0
         retroTextField.addTarget(context.coordinator, action: #selector(context.coordinator.textChanged), for: .editingChanged)
         retroTextField.layer.cornerCurve = cornerCurve ?? .continuous
-        if let borderStyle = borderStyle { retroTextField.borderStyle = borderStyle }
-        if let placeholder = placeholder { retroTextField.placeholder =  placeholder }
+        if let borderStyle = borderStyle {
+            retroTextField.borderStyle = borderStyle
+        }
+        if let placeholder = placeholder {
+            retroTextField.placeholder =  placeholder
+        }
+        if let clearButtonFlag = clearButtonFlag,
+            clearButtonFlag {
+            retroTextField.paddingRight = 0
+            retroTextField.rightView = nil
+            retroTextField.rightViewMode = .never
+            retroTextField.initialize()
+        }
+        let img = UIImageView()
+       
+      
         return retroTextField
     }
     
@@ -95,6 +118,10 @@ public struct RUTextField: UIViewRepresentable {
         if let borderColor = borderColor { kTextfield.layer.borderColor = borderColor }
         if let cornerRadius = cornerRadius { kTextfield.layer.cornerRadius = cornerRadius }
         if let borderStyle = borderStyle { kTextfield.borderStyle = borderStyle }
+        if let clearButtonFlag = clearButtonFlag,
+           clearButtonFlag {
+            kTextfield.initialize()
+        }
     }
     
 }
@@ -111,8 +138,8 @@ extension RUTextField {
         
         public func textFieldShouldClear(_ textField: UITextField) -> Bool {
             guard let kTextfield = kTextfield,
-                  let completionHandler = kTextfield.textFieldShouldClearHandler else { return false }
-            return completionHandler()
+                  let textFieldShouldClearHandler = kTextfield.textFieldShouldClearHandler else { return false }
+            return textFieldShouldClearHandler()
         }
         
         @objc func textChanged(_ sender: UITextField) {

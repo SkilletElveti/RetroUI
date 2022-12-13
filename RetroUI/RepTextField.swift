@@ -18,7 +18,7 @@ class RepTextField: UITextField {
             leftViewMode = .always
         }
     }
-
+    
     var paddingRight: CGFloat {
         get {
             return rightView!.frame.size.width
@@ -43,4 +43,19 @@ class RepTextField: UITextField {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func initialize() {
+        let clearButton = UIButton(frame: CGRect(x: -15, y: 0, width: 16, height: 16))
+        clearButton.setImage(UIImage(systemName: "xmark.circle.fill")!, for: [])
+        
+        self.rightView = clearButton
+        clearButton.addTarget(self, action: #selector(clearClicked), for: .touchUpInside)
+        
+        self.clearButtonMode = .never
+        self.rightViewMode = .whileEditing
+    }
+    
+    @objc func clearClicked(sender:UIButton)
+    {
+        self.text = ""
+    }
 }
