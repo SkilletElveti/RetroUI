@@ -54,8 +54,8 @@ class RepTextField: UITextField {
         self.rightViewMode = .whileEditing
     }
     
-    @objc func clearClicked(sender:UIButton)
-    {
+    @objc func clearClicked(sender:UIButton) {
         self.text = ""
     }
+    
 }

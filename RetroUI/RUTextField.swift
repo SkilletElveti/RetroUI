@@ -15,6 +15,8 @@ public struct RUTextField: UIViewRepresentable {
     public var textFieldDidBeginEditingHandler:(() -> ())?
     public var textFieldShouldEndEditingHandler: (() -> (Bool))?
     public var textfieldEditingChangedHandler: ((String) -> ())?
+    public var textfieldWillPresentEditMenuHandler: ((UIEditMenuInteractionAnimating) -> ())?
+    public var textfieldDidDismissEditMenuHandler: ((UIEditMenuInteractionAnimating) -> ())?
     
     @Binding public var keyboardReturnType: UIReturnKeyType?
     @Binding public var borderWidth: CGFloat?
@@ -35,6 +37,8 @@ public struct RUTextField: UIViewRepresentable {
         textFieldDidBeginEditingHandler: (() -> ())?,
         textFieldShouldEndEditingHandler: (() -> (Bool))?,
         textfieldEditingChangedHandler: ((String?) -> ())?,
+        textfieldWillPresentEditMenuHandler:  ((UIEditMenuInteractionAnimating) -> ())?,
+        textfieldDidDismissEditMenuHandler:  ((UIEditMenuInteractionAnimating) -> ())?,
         
         keyboardReturnType: Binding<UIReturnKeyType?>?,
         borderWidth: Binding<CGFloat?>?,
@@ -55,6 +59,10 @@ public struct RUTextField: UIViewRepresentable {
         self.textFieldShouldReturnHandler = textFieldShouldReturnHandler
         self.textFieldShouldEndEditingHandler = textFieldShouldEndEditingHandler
         self.textfieldEditingChangedHandler = textfieldEditingChangedHandler
+        
+        self.textfieldWillPresentEditMenuHandler = textfieldWillPresentEditMenuHandler
+        
+        self.textfieldDidDismissEditMenuHandler = textfieldDidDismissEditMenuHandler
         
         self._keyboardReturnType = keyboardReturnType ?? Binding.constant(nil)
         self._borderWidth = borderWidth ?? Binding.constant(nil)
@@ -97,9 +105,7 @@ public struct RUTextField: UIViewRepresentable {
             retroTextField.rightViewMode = .never
             retroTextField.initialize()
         }
-        let img = UIImageView()
-       
-      
+        
         return retroTextField
     }
     
@@ -172,6 +178,23 @@ extension RUTextField {
             guard let kTextField = kTextfield,
                   let textFieldShouldEndEditingHandler = kTextField.textFieldShouldEndEditingHandler else { return true }
             return textFieldShouldEndEditingHandler()
+        }
+        
+        public func textField(_ textField: UITextField, willPresentEditMenuWith animator: UIEditMenuInteractionAnimating) {
+            guard let kTextField = kTextfield,
+                  let textfieldWillPresentEditMenuHandler = kTextField.textfieldWillPresentEditMenuHandler else { return
+            }
+            textfieldWillPresentEditMenuHandler(animator)
+            return
+        }
+        
+        public func textField(_ textField: UITextField, willDismissEditMenuWith animator: UIEditMenuInteractionAnimating) {
+            guard let kTextField = kTextfield,
+                  let textfieldDidDismissEditMenuHandler = kTextField.textfieldDidDismissEditMenuHandler else { return
+            }
+            textfieldDidDismissEditMenuHandler(animator)
+            return
+
         }
     }
     

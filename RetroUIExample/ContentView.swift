@@ -51,6 +51,14 @@ struct ContentView: View {
                 text in
                 someText = text ?? ""
             },
+            textfieldWillPresentEditMenuHandler: {
+                animator in
+                print("textfieldWillPresentEditMenuHandler")
+            },
+            textfieldDidDismissEditMenuHandler: {
+                animtor in
+                print("textfieldDidDismissEditMenuHandler")
+            },
             keyboardReturnType: nil,
             borderWidth: $borderWidth,
             borderColor: $borderColor,
