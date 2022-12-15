@@ -17,6 +17,7 @@ public struct RUTextField: UIViewRepresentable {
     public var textfieldEditingChangedHandler: ((String) -> ())?
     public var textfieldWillPresentEditMenuHandler: ((UIEditMenuInteractionAnimating) -> ())?
     public var textfieldDidDismissEditMenuHandler: ((UIEditMenuInteractionAnimating) -> ())?
+    public var textfieldshouldChangeCharactersInHandler: ((NSRange,String) -> (Bool))?
     
     @Binding public var keyboardReturnType: UIReturnKeyType?
     @Binding public var borderWidth: CGFloat?
@@ -39,7 +40,7 @@ public struct RUTextField: UIViewRepresentable {
         textfieldEditingChangedHandler: ((String?) -> ())?,
         textfieldWillPresentEditMenuHandler:  ((UIEditMenuInteractionAnimating) -> ())?,
         textfieldDidDismissEditMenuHandler:  ((UIEditMenuInteractionAnimating) -> ())?,
-        
+        textfieldshouldChangeCharactersInHandler: ((NSRange,String) -> (Bool))?,
         keyboardReturnType: Binding<UIReturnKeyType?>?,
         borderWidth: Binding<CGFloat?>?,
         borderColor: Binding<CGColor?>?,
@@ -63,7 +64,7 @@ public struct RUTextField: UIViewRepresentable {
         self.textfieldWillPresentEditMenuHandler = textfieldWillPresentEditMenuHandler
         
         self.textfieldDidDismissEditMenuHandler = textfieldDidDismissEditMenuHandler
-        
+        self.textfieldshouldChangeCharactersInHandler = textfieldshouldChangeCharactersInHandler
         self._keyboardReturnType = keyboardReturnType ?? Binding.constant(nil)
         self._borderWidth = borderWidth ?? Binding.constant(nil)
         self._borderColor = borderColor ?? Binding.constant(nil)
@@ -194,7 +195,14 @@ extension RUTextField {
             }
             textfieldDidDismissEditMenuHandler(animator)
             return
-
+        }
+        
+        public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+            guard let kTextfield = kTextfield,
+                  let textfieldshouldChangeCharactersInHandler = kTextfield.textfieldshouldChangeCharactersInHandler else {
+                return true
+            }
+            return textfieldshouldChangeCharactersInHandler(range,string)
         }
     }
     

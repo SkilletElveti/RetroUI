@@ -59,6 +59,14 @@ struct ContentView: View {
                 animtor in
                 print("textfieldDidDismissEditMenuHandler")
             },
+            textfieldshouldChangeCharactersInHandler: {
+                range, string in
+                if !CharacterSet(charactersIn: "0123456789").isSuperset(of: CharacterSet(charactersIn: string)) {
+                    
+                    return false
+                }
+                return true
+            },
             keyboardReturnType: nil,
             borderWidth: $borderWidth,
             borderColor: $borderColor,
@@ -67,7 +75,8 @@ struct ContentView: View {
             paddingLeft: $paddingLeft,
             paddingRight: $paddingRight,
             placeholder: $placeholder,
-            borderStyle: $borderStyle, clearButtonFlag: $clearButtonFlag
+            borderStyle: $borderStyle,
+            clearButtonFlag: $clearButtonFlag
         )
         .frame(height: 45)
         .frame(maxWidth: .infinity)
