@@ -23,6 +23,9 @@
 		88592256293A6ED0006B9F1A /* RetroUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 885922092939D436006B9F1A /* RetroUI.framework */; };
 		88592257293A6ED0006B9F1A /* RetroUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 885922092939D436006B9F1A /* RetroUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		88910041294C1FDC006AE5DB /* RUTextField + Coordinator .swift in Sources */ = {isa = PBXBuildFile; fileRef = 88910040294C1FDC006AE5DB /* RUTextField + Coordinator .swift */; };
+		88910045294C2473006AE5DB /* RUTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88910044294C2473006AE5DB /* RUTableView.swift */; };
+		88910047294C26E5006AE5DB /* RepresentableTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88910046294C26E5006AE5DB /* RepresentableTableView.swift */; };
+		88910049294C2721006AE5DB /* RUTableView + Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88910048294C2721006AE5DB /* RUTableView + Coordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +92,9 @@
 		88592248293A6E7B006B9F1A /* RetroUIExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetroUIExampleUITests.swift; sourceTree = "<group>"; };
 		8859224A293A6E7B006B9F1A /* RetroUIExampleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetroUIExampleUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		88910040294C1FDC006AE5DB /* RUTextField + Coordinator .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RUTextField + Coordinator .swift"; sourceTree = "<group>"; };
+		88910044294C2473006AE5DB /* RUTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RUTableView.swift; sourceTree = "<group>"; };
+		88910046294C26E5006AE5DB /* RepresentableTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepresentableTableView.swift; sourceTree = "<group>"; };
+		88910048294C2721006AE5DB /* RUTableView + Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RUTableView + Coordinator.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,11 +166,10 @@
 		8859220B2939D436006B9F1A /* RetroUI */ = {
 			isa = PBXGroup;
 			children = (
+				88910043294C2458006AE5DB /* RUTableView */,
+				88910042294C2447006AE5DB /* RUTextField */,
 				8859220C2939D436006B9F1A /* RetroUI.h */,
 				8859220D2939D436006B9F1A /* RetroUI.docc */,
-				885922232939D44A006B9F1A /* RUTextField.swift */,
-				885922252939DC13006B9F1A /* RepTextField.swift */,
-				88910040294C1FDC006AE5DB /* RUTextField + Coordinator .swift */,
 			);
 			path = RetroUI;
 			sourceTree = "<group>";
@@ -218,6 +223,26 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		88910042294C2447006AE5DB /* RUTextField */ = {
+			isa = PBXGroup;
+			children = (
+				885922232939D44A006B9F1A /* RUTextField.swift */,
+				885922252939DC13006B9F1A /* RepTextField.swift */,
+				88910040294C1FDC006AE5DB /* RUTextField + Coordinator .swift */,
+			);
+			path = RUTextField;
+			sourceTree = "<group>";
+		};
+		88910043294C2458006AE5DB /* RUTableView */ = {
+			isa = PBXGroup;
+			children = (
+				88910044294C2473006AE5DB /* RUTableView.swift */,
+				88910046294C26E5006AE5DB /* RepresentableTableView.swift */,
+				88910048294C2721006AE5DB /* RUTableView + Coordinator.swift */,
+			);
+			path = RUTableView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -421,7 +446,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88910049294C2721006AE5DB /* RUTableView + Coordinator.swift in Sources */,
+				88910047294C26E5006AE5DB /* RepresentableTableView.swift in Sources */,
 				88910041294C1FDC006AE5DB /* RUTextField + Coordinator .swift in Sources */,
+				88910045294C2473006AE5DB /* RUTableView.swift in Sources */,
 				885922262939DC13006B9F1A /* RepTextField.swift in Sources */,
 				885922242939D44A006B9F1A /* RUTextField.swift in Sources */,
 				8859220E2939D436006B9F1A /* RetroUI.docc in Sources */,
