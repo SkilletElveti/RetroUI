@@ -22,6 +22,7 @@
 		8859224B293A6E7B006B9F1A /* RetroUIExampleUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8859224A293A6E7B006B9F1A /* RetroUIExampleUITestsLaunchTests.swift */; };
 		88592256293A6ED0006B9F1A /* RetroUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 885922092939D436006B9F1A /* RetroUI.framework */; };
 		88592257293A6ED0006B9F1A /* RetroUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 885922092939D436006B9F1A /* RetroUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		88910041294C1FDC006AE5DB /* RUTextField + Coordinator .swift in Sources */ = {isa = PBXBuildFile; fileRef = 88910040294C1FDC006AE5DB /* RUTextField + Coordinator .swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		88592244293A6E7B006B9F1A /* RetroUIExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RetroUIExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		88592248293A6E7B006B9F1A /* RetroUIExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetroUIExampleUITests.swift; sourceTree = "<group>"; };
 		8859224A293A6E7B006B9F1A /* RetroUIExampleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetroUIExampleUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		88910040294C1FDC006AE5DB /* RUTextField + Coordinator .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RUTextField + Coordinator .swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +164,7 @@
 				8859220D2939D436006B9F1A /* RetroUI.docc */,
 				885922232939D44A006B9F1A /* RUTextField.swift */,
 				885922252939DC13006B9F1A /* RepTextField.swift */,
+				88910040294C1FDC006AE5DB /* RUTextField + Coordinator .swift */,
 			);
 			path = RetroUI;
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88910041294C1FDC006AE5DB /* RUTextField + Coordinator .swift in Sources */,
 				885922262939DC13006B9F1A /* RepTextField.swift in Sources */,
 				885922242939D44A006B9F1A /* RUTextField.swift in Sources */,
 				8859220E2939D436006B9F1A /* RetroUI.docc in Sources */,
