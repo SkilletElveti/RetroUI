@@ -21,5 +21,25 @@ extension RUTableView {
         public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             UITableViewCell()
         }
+        
+        public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            
+        }
+        
+        public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+            
+        }
+        
+        public func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+            return true
+        }
+        
+        public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+            return nil
+        }
+        
+        public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+            return nil
+        }
     }
 }
