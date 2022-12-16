@@ -62,10 +62,12 @@ struct ContentView: View {
             textfieldshouldChangeCharactersInHandler: {
                 range, string in
                 if !CharacterSet(charactersIn: "0123456789").isSuperset(of: CharacterSet(charactersIn: string)) {
-                    
                     return false
                 }
                 return true
+            },
+            textFieldDidChangeSelectionHandler: {
+                print("textFieldDidChangeSelectionHandler")
             },
             keyboardReturnType: nil,
             borderWidth: $borderWidth,

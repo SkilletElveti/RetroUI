@@ -18,6 +18,7 @@ public struct RUTextField: UIViewRepresentable {
     public var textfieldWillPresentEditMenuHandler: ((UIEditMenuInteractionAnimating) -> ())?
     public var textfieldDidDismissEditMenuHandler: ((UIEditMenuInteractionAnimating) -> ())?
     public var textfieldshouldChangeCharactersInHandler: ((NSRange,String) -> (Bool))?
+    public var textFieldDidChangeSelectionHandler: (() -> ())?
     
     @Binding public var keyboardReturnType: UIReturnKeyType?
     @Binding public var borderWidth: CGFloat?
@@ -31,40 +32,57 @@ public struct RUTextField: UIViewRepresentable {
     @Binding public var clearButtonFlag: Bool?
     
     public init (
-        
-        textFieldShouldClearHandler: (() -> (Bool))?,
-        textFieldDidEndEditingHandler: (() -> ())?,
-        textFieldShouldReturnHandler: (() -> (Bool))?,
-        textFieldDidBeginEditingHandler: (() -> ())?,
-        textFieldShouldEndEditingHandler: (() -> (Bool))?,
-        textfieldEditingChangedHandler: ((String?) -> ())?,
-        textfieldWillPresentEditMenuHandler:  ((UIEditMenuInteractionAnimating) -> ())?,
-        textfieldDidDismissEditMenuHandler:  ((UIEditMenuInteractionAnimating) -> ())?,
-        textfieldshouldChangeCharactersInHandler: ((NSRange,String) -> (Bool))?,
-        keyboardReturnType: Binding<UIReturnKeyType?>?,
-        borderWidth: Binding<CGFloat?>?,
-        borderColor: Binding<CGColor?>?,
-        cornerRadius: Binding<CGFloat?>?,
-        cornerCurve: Binding<CALayerCornerCurve?>?,
-        paddingLeft: Binding<CGFloat?>?,
-        paddingRight: Binding<CGFloat?>?,
-        placeholder: Binding<String?>?,
-        borderStyle: Binding<UITextField.BorderStyle?>?,
-        clearButtonFlag: Binding<Bool?>?
-        
+        textFieldShouldClearHandler:
+        (() -> (Bool))?,
+        textFieldDidEndEditingHandler:
+        (() -> ())?,
+        textFieldShouldReturnHandler:
+        (() -> (Bool))?,
+        textFieldDidBeginEditingHandler:
+        (() -> ())?,
+        textFieldShouldEndEditingHandler:
+        (() -> (Bool))?,
+        textfieldEditingChangedHandler:
+        ((String?) -> ())?,
+        textfieldWillPresentEditMenuHandler:
+        ((UIEditMenuInteractionAnimating) -> ())?,
+        textfieldDidDismissEditMenuHandler:
+        ((UIEditMenuInteractionAnimating) -> ())?,
+        textfieldshouldChangeCharactersInHandler:
+        ((NSRange,String) -> (Bool))?,
+        textFieldDidChangeSelectionHandler:
+        (() -> ())?,
+        keyboardReturnType:
+        Binding<UIReturnKeyType?>?,
+        borderWidth:
+        Binding<CGFloat?>?,
+        borderColor:
+        Binding<CGColor?>?,
+        cornerRadius:
+        Binding<CGFloat?>?,
+        cornerCurve:
+        Binding<CALayerCornerCurve?>?,
+        paddingLeft:
+        Binding<CGFloat?>?,
+        paddingRight:
+        Binding<CGFloat?>?,
+        placeholder:
+        Binding<String?>?,
+        borderStyle:
+        Binding<UITextField.BorderStyle?>?,
+        clearButtonFlag:
+        Binding<Bool?>?
     ) {
-        
         self.textFieldShouldClearHandler = textFieldShouldClearHandler
         self.textFieldDidEndEditingHandler = textFieldDidEndEditingHandler
         self.textFieldDidBeginEditingHandler = textFieldDidBeginEditingHandler
         self.textFieldShouldReturnHandler = textFieldShouldReturnHandler
         self.textFieldShouldEndEditingHandler = textFieldShouldEndEditingHandler
         self.textfieldEditingChangedHandler = textfieldEditingChangedHandler
-        
         self.textfieldWillPresentEditMenuHandler = textfieldWillPresentEditMenuHandler
-        
         self.textfieldDidDismissEditMenuHandler = textfieldDidDismissEditMenuHandler
         self.textfieldshouldChangeCharactersInHandler = textfieldshouldChangeCharactersInHandler
+        self.textFieldDidChangeSelectionHandler = textFieldDidChangeSelectionHandler
         self._keyboardReturnType = keyboardReturnType ?? Binding.constant(nil)
         self._borderWidth = borderWidth ?? Binding.constant(nil)
         self._borderColor = borderColor ?? Binding.constant(nil)
@@ -75,7 +93,6 @@ public struct RUTextField: UIViewRepresentable {
         self._cornerCurve = cornerCurve ?? Binding.constant(.continuous)
         self._borderStyle = borderStyle ?? Binding.constant(nil)
         self._clearButtonFlag = clearButtonFlag ?? Binding.constant(nil)
-        
     }
     
     public func makeUIView(context: Context) -> some UIView {
@@ -203,6 +220,14 @@ extension RUTextField {
                 return true
             }
             return textfieldshouldChangeCharactersInHandler(range,string)
+        }
+        
+        public func textFieldDidChangeSelection(_ textField: UITextField) {
+            guard let kTextfield = kTextfield,
+                  let textFieldDidChangeSelectionHandler = kTextfield.textFieldDidChangeSelectionHandler else {
+                return
+            }
+            textFieldDidChangeSelectionHandler()
         }
     }
     
