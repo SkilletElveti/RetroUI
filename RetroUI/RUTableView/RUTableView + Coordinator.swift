@@ -43,7 +43,9 @@ extension RUTableView {
         }
         
         public func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-            return true
+            guard let kTableView  = kTableView,
+                  let tableViewCanEditRowAt = kTableView.tableViewCanEditRowAt else { return false }
+            return tableViewCanEditRowAt(indexPath)
         }
         
         public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -53,7 +55,9 @@ extension RUTableView {
         }
         
         public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-            return nil
+            guard let kTableView = kTableView,
+                  let tableviewForHeaderInSection = kTableView.tableviewForHeaderInSection else { return nil }
+            return tableviewForHeaderInSection(section)
         }
     }
 }

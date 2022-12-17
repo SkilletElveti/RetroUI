@@ -32,6 +32,20 @@ struct TableExample: View {
             }, tableViewTitleForHeaderInSection: {
                 section in
                 return section == 0 ? "Section1" : nil
+            }, tableviewForHeaderInSection: {
+                section in
+                if section == 1 {
+                    let view = UIView()
+                    view.backgroundColor = .blue
+                    return view
+                }
+                return nil
+            }, tableViewCanEditRowAt: {
+                indexPath in
+                if indexPath.row == 1 && indexPath.section == 0 {
+                    return false
+                }
+                return true
             }).frame(
                 height:
                     UIScreen.main.bounds.height * 0.7

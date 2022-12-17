@@ -17,13 +17,18 @@ public struct RUTableView: UIViewRepresentable {
     public var tableViewDidSelectRowAtHandler: ((IndexPath) -> ())?
     public var tableViewNumberOfSections: (() -> (Int))?
     public var tableViewTitleForHeaderInSection: ((Int) -> (String?))?
+    public var tableviewForHeaderInSection: ((Int) -> (UIView?))?
+    public var tableViewCanEditRowAt: ((IndexPath) -> (Bool))?
+    
     public init(
         numberOfRowsInSectionHandler: (() -> (Int))?,
         tableViewCellForRowAtHandler: (() -> (UITableViewCell))?,
         tableViewStyleHandler: (() -> (UITableView.Style))?,
         tableViewDidSelectRowAtHandler: ((IndexPath) -> ())?,
         tableViewNumberOfSections: (() -> (Int))?,
-        tableViewTitleForHeaderInSection: ((Int) -> (String?))?
+        tableViewTitleForHeaderInSection: ((Int) -> (String?))?,
+        tableviewForHeaderInSection: ((Int) -> (UIView?))?,
+        tableViewCanEditRowAt: ((IndexPath) -> (Bool))?
     ) {
         self.numberOfRowsInSectionHandler = numberOfRowsInSectionHandler
         self.tableViewCellForRowAtHandler = tableViewCellForRowAtHandler
@@ -31,6 +36,8 @@ public struct RUTableView: UIViewRepresentable {
         self.tableViewDidSelectRowAtHandler = tableViewDidSelectRowAtHandler
         self.tableViewNumberOfSections = tableViewNumberOfSections
         self.tableViewTitleForHeaderInSection = tableViewTitleForHeaderInSection
+        self.tableviewForHeaderInSection = tableviewForHeaderInSection
+        self.tableViewCanEditRowAt = tableViewCanEditRowAt
     }
     
     public func makeCoordinator() -> Coordinator {
