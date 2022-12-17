@@ -14,17 +14,22 @@ public struct RUTableView: UIViewRepresentable {
     public var numberOfRowsInSectionHandler: (()-> (Int))?
     public var tableViewCellForRowAtHandler: (() -> (UITableViewCell))?
     public var tableViewStyleHandler: (() -> (UITableView.Style))?
-    public var tableViewDidSelectRowAtHandler: (() -> ())?
+    public var tableViewDidSelectRowAtHandler: ((IndexPath) -> ())?
+    public var tableViewNumberOfSections: (() -> (Int))?
+    
+    
     public init(
         _ numberOfRowsInSectionHandler: (() -> (Int))?,
         _ tableViewCellForRowAtHandler: (() -> (UITableViewCell))?,
         _ tableViewStyleHandler: (() -> (UITableView.Style))?,
-        _ tableViewDidSelectRowAtHandler: (() -> ())?
+        _ tableViewDidSelectRowAtHandler: ((IndexPath) -> ())?,
+        _ tableViewNumberOfSections: (() -> (Int))?
     ) {
         self.numberOfRowsInSectionHandler = numberOfRowsInSectionHandler
         self.tableViewCellForRowAtHandler = tableViewCellForRowAtHandler
         self.tableViewStyleHandler = tableViewStyleHandler
         self.tableViewDidSelectRowAtHandler = tableViewDidSelectRowAtHandler
+        self.tableViewNumberOfSections = tableViewNumberOfSections
     }
     
     public func makeCoordinator() -> Coordinator {

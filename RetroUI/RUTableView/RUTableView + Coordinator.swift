@@ -14,6 +14,12 @@ extension RUTableView {
             self.kTableView = kTableView
         }
         
+        public func numberOfSections(in tableView: UITableView) -> Int {
+            guard let kTableView = kTableView,
+                  let tableViewNumberOfSections = kTableView.tableViewNumberOfSections else { return 1 }
+            return tableViewNumberOfSections()
+        }
+        
         public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             guard let kTableView = kTableView,
                   let numberOfRowsInSectionHandler = kTableView.numberOfRowsInSectionHandler else { return 0 }
@@ -22,14 +28,14 @@ extension RUTableView {
         
         public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             guard let kTableView = kTableView,
-                  let tableViewCellorRowAtHandler = kTableView.tableViewCellForRowAtHandler else { return UITableViewCell() }
-            return tableViewCellorRowAtHandler()
+                  let tableViewCellforRowAtHandler = kTableView.tableViewCellForRowAtHandler else { return UITableViewCell() }
+            return tableViewCellforRowAtHandler()
         }
         
         public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             guard let kTableView = kTableView,
-                  let tableViewDidSelectRowAt = kTableView.tableViewDidSelectRowAt else { return }
-            tableViewDidSelectRowAt()
+                  let tableViewDidSelectRowAtHandler = kTableView.tableViewDidSelectRowAtHandler else { return }
+            tableViewDidSelectRowAtHandler(indexPath)
         }
         
         public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

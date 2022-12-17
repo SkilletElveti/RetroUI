@@ -20,8 +20,13 @@ struct TableExample: View {
             }, {
                 return .insetGrouped
             }, {
-                print("TAP")
-            }).frame(height: 150)
+                indexPath in
+                print("TAP at Section: \(indexPath.section) Row: \(indexPath.row)")
+            }, {
+                return 2
+            }).frame(
+                height: UIScreen.main.bounds.height * 0.7
+            )
     }
 }
 
