@@ -17,6 +17,8 @@ struct TableExample: View {
             cell.contentView.bringSubviewToFront(cell.textLabel!)
             cell.textLabel?.text = "Hey from SwiftUI"
             return cell
+            }, {
+                return .insetGrouped
             }).frame(height: 150)
     }
 }

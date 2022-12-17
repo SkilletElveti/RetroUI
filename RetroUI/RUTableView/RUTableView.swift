@@ -13,13 +13,16 @@ public struct RUTableView: UIViewRepresentable {
     
     public var numberOfRowsInSectionHandler: (()-> (Int))?
     public var tableViewCellForRowAtHandler: (() -> (UITableViewCell))?
+    public var tableViewStyleHandler: (() -> (UITableView.Style))?
     
     public init(
         _ numberOfRowsInSectionHandler: (() -> (Int))?,
-        _ tableViewCellForRowAtHandler: (() -> (UITableViewCell))?
+        _ tableViewCellForRowAtHandler: (() -> (UITableViewCell))?,
+        _ tableViewStyleHandler: (() -> (UITableView.Style))?
     ) {
         self.numberOfRowsInSectionHandler = numberOfRowsInSectionHandler
         self.tableViewCellForRowAtHandler = tableViewCellForRowAtHandler
+        self.tableViewStyleHandler = tableViewStyleHandler
     }
     
     public func makeCoordinator() -> Coordinator {
@@ -27,7 +30,7 @@ public struct RUTableView: UIViewRepresentable {
     }
     
     public func makeUIView(context: Context) -> some UIView {
-        let tableView = RepresentableTableView(frame: .zero, style: .plain)
+        let tableView = RepresentableTableView(frame: .zero, style: tableViewStyleHandler != nil ? tableViewStyleHandler!() : .plain)
         tableView.delegate = context.coordinator
         tableView.dataSource = context.coordinator
         tableView.reloadData()
