@@ -15,11 +15,15 @@ extension RUTableView {
         }
         
         public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            1
+            guard let kTableView = kTableView,
+                  let numberOfRowsInSectionHandler = kTableView.numberOfRowsInSectionHandler else { return 0 }
+            return numberOfRowsInSectionHandler()
         }
         
         public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            UITableViewCell()
+            guard let kTableView = kTableView,
+                  let tableViewCellorRowAtHandler = kTableView.tableViewCellForRowAtHandler else { return UITableViewCell() }
+            return tableViewCellorRowAtHandler()
         }
         
         public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

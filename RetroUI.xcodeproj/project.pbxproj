@@ -26,6 +26,7 @@
 		88910045294C2473006AE5DB /* RUTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88910044294C2473006AE5DB /* RUTableView.swift */; };
 		88910047294C26E5006AE5DB /* RepresentableTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88910046294C26E5006AE5DB /* RepresentableTableView.swift */; };
 		88910049294C2721006AE5DB /* RUTableView + Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88910048294C2721006AE5DB /* RUTableView + Coordinator.swift */; };
+		8891004B294E217F006AE5DB /* TableExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8891004A294E217F006AE5DB /* TableExample.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,7 @@
 		88910044294C2473006AE5DB /* RUTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RUTableView.swift; sourceTree = "<group>"; };
 		88910046294C26E5006AE5DB /* RepresentableTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepresentableTableView.swift; sourceTree = "<group>"; };
 		88910048294C2721006AE5DB /* RUTableView + Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RUTableView + Coordinator.swift"; sourceTree = "<group>"; };
+		8891004A294E217F006AE5DB /* TableExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableExample.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +189,7 @@
 			children = (
 				8859222D293A6E7A006B9F1A /* RetroUIExampleApp.swift */,
 				8859222F293A6E7A006B9F1A /* ContentView.swift */,
+				8891004A294E217F006AE5DB /* TableExample.swift */,
 				88592231293A6E7B006B9F1A /* Assets.xcassets */,
 				88592233293A6E7B006B9F1A /* Preview Content */,
 			);
@@ -468,6 +471,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8891004B294E217F006AE5DB /* TableExample.swift in Sources */,
 				88592230293A6E7A006B9F1A /* ContentView.swift in Sources */,
 				8859222E293A6E7A006B9F1A /* RetroUIExampleApp.swift in Sources */,
 			);
