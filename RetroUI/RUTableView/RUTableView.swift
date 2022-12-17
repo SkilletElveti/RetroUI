@@ -16,20 +16,21 @@ public struct RUTableView: UIViewRepresentable {
     public var tableViewStyleHandler: (() -> (UITableView.Style))?
     public var tableViewDidSelectRowAtHandler: ((IndexPath) -> ())?
     public var tableViewNumberOfSections: (() -> (Int))?
-    
-    
+    public var tableViewTitleForHeaderInSection: ((Int) -> (String?))?
     public init(
-        _ numberOfRowsInSectionHandler: (() -> (Int))?,
-        _ tableViewCellForRowAtHandler: (() -> (UITableViewCell))?,
-        _ tableViewStyleHandler: (() -> (UITableView.Style))?,
-        _ tableViewDidSelectRowAtHandler: ((IndexPath) -> ())?,
-        _ tableViewNumberOfSections: (() -> (Int))?
+        numberOfRowsInSectionHandler: (() -> (Int))?,
+        tableViewCellForRowAtHandler: (() -> (UITableViewCell))?,
+        tableViewStyleHandler: (() -> (UITableView.Style))?,
+        tableViewDidSelectRowAtHandler: ((IndexPath) -> ())?,
+        tableViewNumberOfSections: (() -> (Int))?,
+        tableViewTitleForHeaderInSection: ((Int) -> (String?))?
     ) {
         self.numberOfRowsInSectionHandler = numberOfRowsInSectionHandler
         self.tableViewCellForRowAtHandler = tableViewCellForRowAtHandler
         self.tableViewStyleHandler = tableViewStyleHandler
         self.tableViewDidSelectRowAtHandler = tableViewDidSelectRowAtHandler
         self.tableViewNumberOfSections = tableViewNumberOfSections
+        self.tableViewTitleForHeaderInSection = tableViewTitleForHeaderInSection
     }
     
     public func makeCoordinator() -> Coordinator {

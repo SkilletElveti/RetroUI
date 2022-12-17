@@ -47,7 +47,9 @@ extension RUTableView {
         }
         
         public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-            return nil
+            guard let kTableView = kTableView,
+                  let tableViewTitleForHeaderInSection = kTableView.tableViewTitleForHeaderInSection else { return nil }
+            return tableViewTitleForHeaderInSection(section)
         }
         
         public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
