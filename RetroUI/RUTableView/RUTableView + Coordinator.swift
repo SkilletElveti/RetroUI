@@ -27,7 +27,9 @@ extension RUTableView {
         }
         
         public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            
+            guard let kTableView = kTableView,
+                  let tableViewDidSelectRowAt = kTableView.tableViewDidSelectRowAt else { return }
+            tableViewDidSelectRowAt()
         }
         
         public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

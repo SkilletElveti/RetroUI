@@ -19,6 +19,8 @@ struct TableExample: View {
             return cell
             }, {
                 return .insetGrouped
+            }, {
+                print("TAP")
             }).frame(height: 150)
     }
 }
