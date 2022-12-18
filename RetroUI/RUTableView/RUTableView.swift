@@ -23,7 +23,9 @@ public struct RUTableView: UIViewRepresentable {
     public var tableViewEstimatedHeightForRowAt: ((IndexPath) -> (CGFloat))?
     public var tableViewTitleForFooterInSection: ((Int) -> (String?))?
     public var tableViewHeightForRowAt: ((IndexPath) -> (CGFloat))?
+    public var tableViewWillDisplayForRowAt: ((UITableViewCell,IndexPath) -> ())?
     public init(
+        
         numberOfRowsInSectionHandler: (() -> (Int))?,
         tableViewCellForRowAtHandler: (() -> (UITableViewCell))?,
         tableViewStyleHandler: (() -> (UITableView.Style))?,
@@ -35,8 +37,11 @@ public struct RUTableView: UIViewRepresentable {
         tableViewHeightForHeaderInSection:  ((Int) -> (CGFloat))?,
         tableViewEstimatedHeightForRowAt: ((IndexPath) -> (CGFloat))?,
         tableViewTitleForFooterInSection: ((Int) -> (String?))?,
-        tableViewHeightForRowAt: ((IndexPath) -> (CGFloat))?
+        tableViewHeightForRowAt: ((IndexPath) -> (CGFloat))?,
+        tableViewWillDisplayForRowAt: ((UITableViewCell,IndexPath) -> ())?
+        
     ) {
+        
         self.numberOfRowsInSectionHandler = numberOfRowsInSectionHandler
         self.tableViewCellForRowAtHandler = tableViewCellForRowAtHandler
         self.tableViewStyleHandler = tableViewStyleHandler
@@ -49,7 +54,7 @@ public struct RUTableView: UIViewRepresentable {
         self.tableViewEstimatedHeightForRowAt = tableViewEstimatedHeightForRowAt
         self.tableViewTitleForFooterInSection = tableViewTitleForFooterInSection
         self.tableViewHeightForRowAt = tableViewHeightForRowAt
-        
+        self.tableViewWillDisplayForRowAt = tableViewWillDisplayForRowAt
     }
     
     public func makeCoordinator() -> Coordinator {

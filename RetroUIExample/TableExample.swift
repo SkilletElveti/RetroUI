@@ -57,10 +57,10 @@ struct TableExample: View {
             tableViewEstimatedHeightForRowAt: {
                 indexPath in
                 if indexPath.row % 2 == 0 {
-                    print("Entering 90")
+    
                     return 90
                 } else {
-                    print("Entering 50")
+                   
                     return 50
                 }
             },tableViewTitleForFooterInSection: {
@@ -70,6 +70,9 @@ struct TableExample: View {
             },tableViewHeightForRowAt: {
                 index in
                 return UITableView.automaticDimension
+            }, tableViewWillDisplayForRowAt: {
+                cell, index in
+                
             }).frame(
                 height:
                     UIScreen.main.bounds.height * 0.7

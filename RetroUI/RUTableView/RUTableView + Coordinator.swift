@@ -8,7 +8,9 @@
 import Foundation
 import UIKit
 extension RUTableView {
-    public class Coordinator: NSObject, UITableViewDelegate, UITableViewDataSource {
+    public class Coordinator: NSObject,
+                              UITableViewDelegate,
+                              UITableViewDataSource {
         var kTableView: RUTableView?
         init(_ kTableView: RUTableView?) {
             self.kTableView = kTableView
@@ -83,5 +85,12 @@ extension RUTableView {
                   let tableViewHeightForRowAt = kTableView.tableViewHeightForRowAt else { return 45 }
             return tableViewHeightForRowAt(indexPath)
         }
+        
+        public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+            guard let kTableView = kTableView,
+                  let tableViewWillDisplayForRowAt = kTableView.tableViewWillDisplayForRowAt else { return }
+            tableViewWillDisplayForRowAt(cell, indexPath)
+        }
+        
     }
 }
