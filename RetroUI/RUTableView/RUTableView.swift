@@ -24,6 +24,9 @@ public struct RUTableView: UIViewRepresentable {
     public var tableViewTitleForFooterInSection: ((Int) -> (String?))?
     public var tableViewHeightForRowAt: ((IndexPath) -> (CGFloat))?
     public var tableViewWillDisplayForRowAt: ((UITableViewCell,IndexPath) -> ())?
+    public var tableViewWillSelectRowAt: ((IndexPath) -> (IndexPath?))?
+    public var tableViewDidDeselectRowAt: ((IndexPath) -> ())?
+    
     public init(
         
         numberOfRowsInSectionHandler: (() -> (Int))?,
@@ -38,8 +41,9 @@ public struct RUTableView: UIViewRepresentable {
         tableViewEstimatedHeightForRowAt: ((IndexPath) -> (CGFloat))?,
         tableViewTitleForFooterInSection: ((Int) -> (String?))?,
         tableViewHeightForRowAt: ((IndexPath) -> (CGFloat))?,
-        tableViewWillDisplayForRowAt: ((UITableViewCell,IndexPath) -> ())?
-        
+        tableViewWillDisplayForRowAt: ((UITableViewCell,IndexPath) -> ())?,
+        tableViewWillSelectRowAt : ((IndexPath)->(IndexPath?))?,
+        tableViewDidDeselectRowAt: ((IndexPath) -> ())?
     ) {
         
         self.numberOfRowsInSectionHandler = numberOfRowsInSectionHandler
@@ -55,6 +59,9 @@ public struct RUTableView: UIViewRepresentable {
         self.tableViewTitleForFooterInSection = tableViewTitleForFooterInSection
         self.tableViewHeightForRowAt = tableViewHeightForRowAt
         self.tableViewWillDisplayForRowAt = tableViewWillDisplayForRowAt
+        self.tableViewWillDisplayForRowAt = tableViewWillDisplayForRowAt
+        self.tableViewWillSelectRowAt = tableViewWillSelectRowAt
+        self.tableViewDidDeselectRowAt = tableViewDidDeselectRowAt
     }
     
     public func makeCoordinator() -> Coordinator {

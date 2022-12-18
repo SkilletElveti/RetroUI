@@ -92,5 +92,17 @@ extension RUTableView {
             tableViewWillDisplayForRowAt(cell, indexPath)
         }
         
+        public func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+            guard let kTableView = kTableView,
+                  let tableViewWillSelectRowAt = kTableView.tableViewWillSelectRowAt else { return nil }
+            return tableViewWillSelectRowAt(indexPath)
+        }
+        
+        public func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+            guard let kTableView = kTableView,
+                  let tableViewDidDeselectRowAt = kTableView.tableViewDidDeselectRowAt else { return }
+            return tableViewDidDeselectRowAt(indexPath)
+        }
+        
     }
 }
