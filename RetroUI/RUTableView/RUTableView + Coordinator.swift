@@ -71,5 +71,17 @@ extension RUTableView {
                   let tableviewForHeaderInSection = kTableView.tableviewForHeaderInSection else { return nil }
             return tableviewForHeaderInSection(section)
         }
+        
+        public func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+            guard let kTableView = kTableView,
+                  let tableViewTitleForFooterInSection = kTableView.tableViewTitleForFooterInSection else { return nil }
+            return tableViewTitleForFooterInSection(section)
+        }
+        
+        public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+            guard let kTableView = kTableView,
+                  let tableViewHeightForRowAt = kTableView.tableViewHeightForRowAt else { return 45 }
+            return tableViewHeightForRowAt(indexPath)
+        }
     }
 }

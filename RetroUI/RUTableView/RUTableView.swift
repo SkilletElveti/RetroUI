@@ -21,6 +21,8 @@ public struct RUTableView: UIViewRepresentable {
     public var tableViewCanEditRowAt: ((IndexPath) -> (Bool))?
     public var tableViewHeightForHeaderInSection: ((Int) -> (CGFloat))?
     public var tableViewEstimatedHeightForRowAt: ((IndexPath) -> (CGFloat))?
+    public var tableViewTitleForFooterInSection: ((Int) -> (String?))?
+    public var tableViewHeightForRowAt: ((IndexPath) -> (CGFloat))?
     public init(
         numberOfRowsInSectionHandler: (() -> (Int))?,
         tableViewCellForRowAtHandler: (() -> (UITableViewCell))?,
@@ -31,7 +33,9 @@ public struct RUTableView: UIViewRepresentable {
         tableviewForHeaderInSection: ((Int) -> (UIView?))?,
         tableViewCanEditRowAt: ((IndexPath) -> (Bool))?,
         tableViewHeightForHeaderInSection:  ((Int) -> (CGFloat))?,
-        tableViewEstimatedHeightForRowAt: ((IndexPath) -> (CGFloat))?
+        tableViewEstimatedHeightForRowAt: ((IndexPath) -> (CGFloat))?,
+        tableViewTitleForFooterInSection: ((Int) -> (String?))?,
+        tableViewHeightForRowAt: ((IndexPath) -> (CGFloat))?
     ) {
         self.numberOfRowsInSectionHandler = numberOfRowsInSectionHandler
         self.tableViewCellForRowAtHandler = tableViewCellForRowAtHandler
@@ -43,6 +47,9 @@ public struct RUTableView: UIViewRepresentable {
         self.tableViewCanEditRowAt = tableViewCanEditRowAt
         self.tableViewHeightForHeaderInSection = tableViewHeightForHeaderInSection
         self.tableViewEstimatedHeightForRowAt = tableViewEstimatedHeightForRowAt
+        self.tableViewTitleForFooterInSection = tableViewTitleForFooterInSection
+        self.tableViewHeightForRowAt = tableViewHeightForRowAt
+        
     }
     
     public func makeCoordinator() -> Coordinator {
@@ -60,5 +67,4 @@ public struct RUTableView: UIViewRepresentable {
     public func updateUIView(_ uiView: UIViewType, context: Context) {
         
     }
-
 }

@@ -63,8 +63,14 @@ struct TableExample: View {
                     print("Entering 50")
                     return 50
                 }
-            }
-        ).frame(
+            },tableViewTitleForFooterInSection: {
+                section in
+                if section == 1 { return "footer" }
+                return nil
+            },tableViewHeightForRowAt: {
+                index in
+                return UITableView.automaticDimension
+            }).frame(
                 height:
                     UIScreen.main.bounds.height * 0.7
             )
