@@ -46,7 +46,25 @@ struct TableExample: View {
                     return false
                 }
                 return true
-            }).frame(
+            },
+            tableViewHeightForHeaderInSection: {
+               section in
+                if section == 1 {
+                    return 90
+                }
+                return 25
+            },
+            tableViewEstimatedHeightForRowAt: {
+                indexPath in
+                if indexPath.row % 2 == 0 {
+                    print("Entering 90")
+                    return 90
+                } else {
+                    print("Entering 50")
+                    return 50
+                }
+            }
+        ).frame(
                 height:
                     UIScreen.main.bounds.height * 0.7
             )

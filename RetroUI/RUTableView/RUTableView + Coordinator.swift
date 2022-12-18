@@ -42,6 +42,18 @@ extension RUTableView {
             
         }
         
+        public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+            guard let kTableView = kTableView,
+                  let tableViewHeightForHeaderInSection = kTableView.tableViewHeightForHeaderInSection else { return 20 }
+            return tableViewHeightForHeaderInSection(section)
+        }
+        
+        public func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+           guard let kTableView = kTableView,
+                 let tableViewEstimatedHeightForRowAt = kTableView.tableViewEstimatedHeightForRowAt else { return 50 }
+            return tableViewEstimatedHeightForRowAt(indexPath)
+        }
+        
         public func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
             guard let kTableView  = kTableView,
                   let tableViewCanEditRowAt = kTableView.tableViewCanEditRowAt else { return false }
